@@ -1,9 +1,32 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+import App from './App';
+import Navbar from './components/Navbar';
+import InputForm from './components/InputForm';
+import CardCreator from './components/CardCreator';
+
+describe('App renders without crashing', () => {
+  test('renders without crashing', () => {
+    render(<App />)
+  });
+})
+
+describe('Navbar renders without crashing', () => {
+  test('renders without crashing', () => {
+    render(<Navbar />)
+  });
+})
+
+describe('Input Form renders without crashing', () => {
+  test('renders without crashing', () => {
+    render(<InputForm />)
+  });
+})
+
+describe('CardCreator renders without crashing', () => {
+  test('renders without crashing', () => {
+    render(<CardCreator />)
+  });
+})
