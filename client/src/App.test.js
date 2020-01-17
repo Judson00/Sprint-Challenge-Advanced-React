@@ -25,8 +25,9 @@ describe('Input Form renders without crashing', () => {
   });
 })
 
-describe('CardCreator renders without crashing', () => {
-  test('renders without crashing', () => {
-    render(<CardCreator />)
-  });
-})
+// describe('Cards render without crashing', () => {
+//   test('renders without crashing', () => {
+//     const { getByTestId } = render(<CardCreator />)
+//     getByTestId(/card-display/i)
+//   });
+// })

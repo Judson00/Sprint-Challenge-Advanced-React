@@ -23,9 +23,24 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit the `ANSWERS.md` file to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Why would you use class component over function components (removing hooks from the question)?
+
+  Class components allow use to use the methods that tap into the Component Lifecycle. These give us more control over how our components work.
+
 - [ ] Name three lifecycle methods and their purposes.
+
+  Render - returns some piece to the DOM
+  componentDidMount - gets called as soon as the render method is called the first time, we can call setState in it which forces a re-render.
+  componentDidUpdate - gets called and updates the DOM
+
 - [ ] What is the purpose of a custom hook?
+
+  So you can have a reusable hook that you customize yourself
+
 - [ ] Why is it important to test our apps?
+
+Testing is essential for software quality. It should be integrated into the development process from beginning to end. We should not wait until a feature is complete to start testing it. Testing software manually on every commit to source control or every time we make a change does not scale! Automated testing works by using software to test our code.
+Automated testing minimizes the risk of bugs finding their way into production code. Testing is NOT optional. Testing should be a part of every developer’s workflow. A feature is not done until it is fully tested!
+
 
 ## Project Set Up
 

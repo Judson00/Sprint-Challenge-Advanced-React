@@ -11,7 +11,7 @@ import {
 const CardCreator = props => {
   return (
     <div>
-      <Card style={{backgroundColor: '#478af5'}}>
+      <Card style={{backgroundColor: '#478af5'}} data-testid='card-display'>
         {props.player.map(item => {
           return (
             <CardBody>
