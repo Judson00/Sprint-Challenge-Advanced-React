@@ -1,26 +1,73 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import axios from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import Navbar from './components/Navbar';
+import InputForm from './components/InputForm';
+import CardCreator from './components/CardCreator';
+class App extends Component{
+  constructor(){
+    super();
+    this.state = {
+      player: [],
+      playerText: ''
+    }
+  }
+
+  componentDidMount(){
+    axios
+      .get(`http://localhost:5000/api/players`)
+      .then(res => 
+        {
+          this.setState({
+            player: res.data
+          })
+          console.log(res)
+        })
+      .catch(err => {
+        console.log("There was an error", err)
+      })
+  }
+
+  // componentDidUpdate(prevProps, prevState){
+  //   if(this.state.player === prevState.player){
+  //     alert("Not a valid name")
+  //   }
+  // }
+
+  handleChanges = e => {
+    this.setState({
+      playerText: e.target.value
+    })
+  }
+
+  fetchPlayer = e => {
+    e.preventDefault()
+    axios
+      .get(`http://localhost:5000/api/${this.state.playerText}`)
+      .then(res => {
+        this.setState({
+          player: res.data
+        })
+      })
+      .catch(err => console.log("There was an error", err))
+  }
+
+  render(){
+    return(
+      <div className="App">
+        <Navbar />
+        <InputForm
+          updateText={this.state.playerText}
+          changeHandler={this.handleChanges}
+          fetch={this.fetchPlayer}
+        />
+        <CardCreator
+          player={this.state.player}
+        />
+      </div>
+    )
+  }
 }
 
 export default App;
