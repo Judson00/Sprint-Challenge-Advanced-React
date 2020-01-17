@@ -5,7 +5,7 @@ import '@testing-library/jest-dom/extend-expect';
 import App from './App';
 import Navbar from './components/Navbar';
 import InputForm from './components/InputForm';
-import CardCreator from './components/CardCreator';
+//import CardCreator from './components/CardCreator';
 
 describe('App renders without crashing', () => {
   test('renders without crashing', () => {
